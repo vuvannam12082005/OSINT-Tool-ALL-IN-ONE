@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 # Cấu hình API
-API_KEY = "e382d0f7aemshadc9522fd22005ep1f18e5jsn12dc29eeae7a"
+API_KEY = "e8d3149b81mshcf22e53e1ed5dddp1c125cjsna542e41b57e0"
 API_HOST = "facebook-scraper3.p.rapidapi.com"
 BASE_URL = "https://facebook-scraper3.p.rapidapi.com"
 

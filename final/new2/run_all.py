@@ -148,6 +148,60 @@ def run_npm_serve():
         subprocess.run([sys.executable, __file__])
         sys.exit(0)
 
+def run_checkin_crawler():
+    print("Chạy CrawCheckin...")
+    # Cho phép nhập uid/username
+    username = input("Nhập uid hoặc username: ").strip()
+    if not username:
+        print("Không được để trống uid/username!")
+        return
+        
+    # Chuyển vào thư mục CrawCheckin
+    os.chdir("CrawCheckin")
+    
+    # Chạy node main.js với username
+    process = subprocess.Popen(
+        ["node", "main.js", username],
+        shell=True
+    )
+    
+    # Đợi process hoàn thành
+    process.wait()
+    
+    # Quay lại thư mục gốc
+    os.chdir("..")
+
+def run_checkin_visualization():
+    print("Chọn file dữ liệu check-in để hiển thị:")
+    data_dir = os.path.join('CrawCheckin', 'src', 'data')
+    if not os.path.exists(data_dir):
+        print(f"Không tìm thấy thư mục: {data_dir}")
+        return
+        
+    files = [f for f in os.listdir(data_dir) if f.endswith('.json')]
+    if not files:
+        print("Không có file JSON trong thư mục này!")
+        return
+        
+    print("Chọn file JSON:")
+    for idx, f in enumerate(files, 1):
+        print(f"{idx}. {f}")
+    f_idx = int(input("Chọn số: ")) - 1
+    json_path = os.path.join(data_dir, files[f_idx])
+
+    # Đọc dữ liệu JSON
+    with open(json_path, 'r', encoding='utf-8') as f:
+        checkin_data = json.load(f)
+
+    # Ghi đè file data_checkin.js
+    with open('data_checkin.js', 'w', encoding='utf-8') as f:
+        f.write('const jsonData = ')
+        json.dump(checkin_data, f, ensure_ascii=False, indent=2)
+        f.write(';')
+
+    print(f'Đã ghi đè data_checkin.js từ {json_path}')
+    webbrowser.open('file://' + os.path.abspath('checkin_routes.html'))
+
 def stop_npm_serve(silent=False):
     global server_proc
     if server_proc and server_proc.poll() is None:
@@ -172,6 +226,8 @@ def main():
         print("3. OSINT bằng API")
         print("4. Sinh sơ đồ mạng (network.html)")
         print("5. Thống kê tỉnh thành từ dữ liệu")
+        print("6. Lấy thông tin di chuyển (check-in)")
+        print("7. Thống kê lịch trình di chuyển")
         print("0. Thoát")
         try:
             choice = input("Chọn chức năng: ")
@@ -189,6 +245,10 @@ def main():
             run_network_html()
         elif choice == "5":
             run_npm_serve()
+        elif choice == "6":
+            run_checkin_crawler()
+        elif choice == "7":
+            run_checkin_visualization()
         elif choice == "0":
             print("\nĐang thoát tool...")
             stop_npm_serve(silent=True)

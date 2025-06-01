@@ -37,5 +37,42 @@ HƯỚNG DẪN SỬ DỤNG OSINT TOOL ALL-IN-ONE
 - Nếu gặp lỗi về đăng nhập, hãy kiểm tra lại cookie, tài khoản, hoặc thử đăng nhập lại bằng Chrome.
 - Nếu Facebook đổi giao diện, có thể cần cập nhật lại selector trong code crawl.
 
+**Cách sửa API token cho các tool trong thư mục API:**
+- Một số tool trong thư mục `API/` yêu cầu bạn phải nhập hoặc sửa token API để truy cập dữ liệu.
+- Thông thường, token này được lưu trong biến `API_TOKEN`, `ACCESS_TOKEN` hoặc tương tự ở đầu file Python (ví dụ: `API/pro5_detail.py`, `API/post_details.py`, ...).
+- Để sửa token:
+  1. Mở file tool bạn muốn sử dụng trong thư mục `API/`.
+  2. Tìm dòng có chứa token (ví dụ: `API_TOKEN = "..."`).
+  3. Thay giá trị bằng token của bạn (lấy từ Facebook Graph API hoặc nguồn hợp lệ).
+  4. Lưu file lại trước khi chạy tool.
+- **Lưu ý bảo mật:** Không chia sẻ token cá nhân cho người khác. Token có thể bị lộ thông tin tài khoản hoặc bị khóa nếu sử dụng sai mục đích.
+
+**Cách sửa thông tin RapidAPI cho các tool trong thư mục API:**
+- Một số tool sử dụng dịch vụ RapidAPI (ví dụ: [facebook-scraper3](https://rapidapi.com/krasnoludkolo/api/facebook-scraper3)) yêu cầu bạn phải sửa các trường sau trong file Python:
+  - `App` (hoặc `X-RapidAPI-Application-Id`): Thường là tên ứng dụng của bạn trên RapidAPI.
+  - `X-RapidAPI-Key`: Mã key cá nhân của bạn trên RapidAPI.
+  - `Request URL`: Địa chỉ endpoint, thường là `rapidapi.com` hoặc endpoint cụ thể của API.
+- Để sửa:
+  1. Đăng nhập vào tài khoản RapidAPI, vào trang [facebook-scraper3](https://rapidapi.com/krasnoludkolo/api/facebook-scraper3).
+  2. Lấy các giá trị App, X-RapidAPI-Key, Request URL như hình minh họa.
+  3. Mở file Python trong thư mục `API/` (ví dụ: `pro5_detail.py`, `post_details.py`, ...).
+  4. Tìm các dòng có chứa các trường trên (có thể là biến hoặc trong headers của request).
+  5. Thay giá trị bằng thông tin của bạn.
+  6. Lưu file lại trước khi chạy tool.
+
+**Ví dụ đoạn code cần sửa:**
+```python
+headers = {
+    "X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY",
+    "X-RapidAPI-Host": "facebook-scraper3.p.rapidapi.com",
+    "App": "YOUR_APP_ID"
+}
+url = "https://facebook-scraper3.p.rapidapi.com/..."
+```
+→ Hãy thay `YOUR_RAPIDAPI_KEY` và `YOUR_APP_ID` bằng giá trị của bạn.
+
+**Lưu ý bảo mật:**  
+Không chia sẻ key RapidAPI cho người khác. Nếu nghi ngờ bị lộ, hãy đổi key trên trang RapidAPI.
+
 Chúc bạn sử dụng tool hiệu quả!
 
