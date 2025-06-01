@@ -447,8 +447,38 @@
     const network = new vis.Network(container, data, options);
     const tooltipDiv = document.getElementById('custom-tooltip');
     
+    // Hàm tìm edge nối node với node cha
+    function getParentEdges(nodeId) {
+      return data.edges.get().filter(edge => edge.to === nodeId);
+    }
+    // Lưu lại các edge đã đổi màu để hoàn nguyên
+    let highlightedEdges = [];
+
+    function highlightParentEdges(nodeId) {
+      const parentEdges = getParentEdges(nodeId);
+      highlightedEdges = parentEdges.map(e => e.id || (e.from + '_' + e.to));
+      parentEdges.forEach(edge => {
+        data.edges.update({
+          id: edge.id || (edge.from + '_' + edge.to),
+          color: { color: '#00ff00', highlight: '#00ff00', hover: '#00ff00' },
+          width: 4
+        });
+      });
+    }
+    function resetParentEdges() {
+      highlightedEdges.forEach(edgeId => {
+        data.edges.update({
+          id: edgeId,
+          color: { color: '#848484', highlight: '#848484', hover: '#848484' },
+          width: 2
+        });
+      });
+      highlightedEdges = [];
+    }
+
     network.on("hoverNode", function(params) {
       const nodeId = params.node;
+      highlightParentEdges(nodeId);
       if (tooltips[nodeId]) {
         tooltipDiv.innerHTML = tooltips[nodeId];
         tooltipDiv.style.display = 'block';
@@ -458,7 +488,16 @@
     });
 
     network.on("blurNode", function(params) {
+      resetParentEdges();
       tooltipDiv.style.display = 'none';
+    });
+
+    network.on("selectNode", function(params) {
+      const nodeId = params.nodes[0];
+      highlightParentEdges(nodeId);
+    });
+    network.on("deselectNode", function(params) {
+      resetParentEdges();
     });
 
     document.body.insertAdjacentHTML('beforeend', `
