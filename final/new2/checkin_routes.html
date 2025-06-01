@@ -90,10 +90,19 @@
       const edges = [];
       const tooltips = {};
       
-      // Sắp xếp checkins theo thời gian
+      // Hàm parse thời gian tiếng Việt
+      function parseVietnameseDatetime(str) {
+        // Ví dụ: "Thứ Ba, 27 Tháng 5, 2025 lúc 15:59"
+        const match = str.match(/(\d{1,2}) Tháng (\d{1,2}), (\d{4}) lúc (\d{1,2}):(\d{2})/);
+        if (!match) return new Date(0); // fallback
+        const [_, day, month, year, hour, minute] = match.map(Number);
+        return new Date(year, month - 1, day, hour, minute);
+      }
+      
+      // Sắp xếp checkins theo thời gian (tăng dần)
       checkins.sort((a, b) => {
-        const timeA = new Date(a.time);
-        const timeB = new Date(b.time);
+        const timeA = parseVietnameseDatetime(a.time);
+        const timeB = parseVietnameseDatetime(b.time);
         return timeA - timeB;
       });
 
