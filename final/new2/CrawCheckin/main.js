@@ -35,10 +35,12 @@ const cookieFilePath = path.join(__dirname, 'src', 'data', 'cookies.json');
         };
 
         // Get username from command line arguments
-        const userIdOrName = process.argv[2] || '';
-        if (!userIdOrName) {
-            console.log('Vui lòng nhập username/uid!');
-            process.exit(1);
+        let userIdOrName = '';
+        while (!userIdOrName) {
+            userIdOrName = await prompt('Nhập username/uid (bắt buộc): ');
+            if (!userIdOrName) {
+            console.log('Bạn phải nhập username/uid!');
+            }
         }
 
         const postLimit = await prompt('Nhập số bài muốn tìm check-in(cuộn qua n bài): ');

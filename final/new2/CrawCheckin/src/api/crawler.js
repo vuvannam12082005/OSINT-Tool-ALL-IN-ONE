@@ -59,7 +59,7 @@ module.exports = async (cookies, setting) => {
     }
     {
         const targetPage = page;
-        await new Promise(resolve => setTimeout(resolve, 15000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
     }
     {
         const targetPage = page;
@@ -82,7 +82,7 @@ module.exports = async (cookies, setting) => {
                 scrollHeight = scrollY;
                 results = [];
                 scrollTo(0, 100000);
-                await new Promise(resolve => setTimeout(resolve, 8000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
                 try {
                     postsContainer = document.querySelector('div[role="main"]').childNodes[5].childNodes[2].childNodes[0].childNodes[1].childNodes[12];
                 } catch (_) {
@@ -126,7 +126,8 @@ module.exports = async (cookies, setting) => {
                     }
                 }
             }
-            return results;
+
+            return results.splice(0, setting.postLimit);
         }, setting);
         console.log(`Found ${posts.length} posts.`);
 
@@ -137,7 +138,7 @@ module.exports = async (cookies, setting) => {
         for (let post of posts) {
             if (setting.postType && post.type != setting.postType) continue;
 
-            const url = await getUrl(page, post.index);
+            const url = await getUrl(page, post.index, post.textContent);
             post.link = url.pfbid;
             post.time = url.time;
 
@@ -169,22 +170,49 @@ module.exports = async (cookies, setting) => {
         fs.writeFileSync(cookiesPath, JSON.stringify(cookies, null, 2));
     }
     await browser.close();
+    if (setting.yearRange || setting.monthRange || setting.dayRange) {
+        const filteredResult = filterPostsByDate(result, setting);
+        
+        if (filteredResult.length > 0) {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const filteredFileName = `check_in_data_${hours}h_${minutes}_${day}_${month}_${year}_filtered.json`;
+            
+        }
+        
+        return filteredResult;
+    }
     return result;
 }
 
-async function getUrl(page, index) {
+async function getUrl(page, index, textContent) {
     let time = "";
 
     try {
         await page.locator(`div[role="main"] > :nth-of-type(4) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2)  > :nth-of-type(2) > :nth-of-type(${index}) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(13) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2)  > :nth-of-type(1) a`).hover();
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         time = await page.evaluate(() => {
             return document.querySelectorAll(".__fb-dark-mode")[0].innerText;
         });
+        if (time == "" || time == "Enter") {
+            const dateMatch = textContent.match(/(\d+) [Tt]háng (\d+), (\d+)/);
+            if (dateMatch) {
+                const day = dateMatch[1];
+                const month = dateMatch[2];
+                const year = dateMatch[3];
+                time = `${day} tháng ${month}, ${year}`;
+            } else {
+                time = "";
+            }
+        }
         await page.locator(`div[role="main"] > :nth-of-type(4) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2)  > :nth-of-type(2) > :nth-of-type(${index}) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1)  > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(13) > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2) > :nth-of-type(1) > :nth-of-type(2)  > :nth-of-type(1) a`).click();
     } catch (e) { }
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     const pfbid = page.url();
     let url = page.url();
@@ -195,4 +223,52 @@ async function getUrl(page, index) {
     }
 
     return { pfbid, time };
+}
+
+function filterPostsByDate(posts, setting) {
+    const { yearRange, monthRange, dayRange } = setting;
+    
+    if (!yearRange && !monthRange && !dayRange) {
+        return posts;
+    }
+    
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    
+    const startYear = yearRange ? (currentYear - parseInt(yearRange)) + 1 : 0;
+    const startMonth = monthRange ? parseInt(monthRange) : 0;
+    const startDay = dayRange ? parseInt(dayRange) : 0;
+    
+    return posts.filter(post => {
+        if (!post.time || post.time === "" || post.time === "Enter") return false;
+        
+        const dateMatch = post.time.match(/(\d+) [Tt]háng (\d+), (\d+)/);
+        if (!dateMatch) {
+            const altMatch = post.time.match(/(Thứ .+), (\d+) Tháng (\d+), (\d+)/i);
+            if (altMatch) {
+                const postDay = parseInt(altMatch[2]);
+                const postMonth = parseInt(altMatch[3]);
+                const postYear = parseInt(altMatch[4]);
+                
+                if (yearRange && postYear < startYear) return false;
+                if (monthRange && (postYear < startYear || (postYear === startYear && postMonth < startMonth))) return false;
+                if (dayRange && (postYear < startYear || (postYear === startYear && postMonth < startMonth) || 
+                    (postYear === startYear && postMonth === startMonth && postDay < startDay))) return false;
+                
+                return true;
+            }
+            return false;
+        }
+        
+        const postDay = parseInt(dateMatch[1]);
+        const postMonth = parseInt(dateMatch[2]);
+        const postYear = parseInt(dateMatch[3]);
+        
+        if (yearRange && postYear < startYear) return false;
+        if (monthRange && (postYear < startYear || (postYear === startYear && postMonth < startMonth))) return false;
+        if (dayRange && (postYear < startYear || (postYear === startYear && postMonth < startMonth) || 
+            (postYear === startYear && postMonth === startMonth && postDay < startDay))) return false;
+        
+        return true;
+    });
 }

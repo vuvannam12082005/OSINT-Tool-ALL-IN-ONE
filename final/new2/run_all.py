@@ -111,57 +111,24 @@ def run_network_html():
     webbrowser.open('file://' + os.path.abspath('network.html'))
 
 def run_npm_serve():
-    global server_proc
-    map_dir = os.path.join(os.getcwd(), 'tsx hometown', 'map')
-    if not os.path.isdir(map_dir):
-        print(f"Không tìm thấy thư mục: {map_dir}")
-        return
-    print(f"Chuyển vào thư mục: {map_dir} và chạy npx serve dist...")
-
-    # Chạy server tĩnh trong process con
-    server_proc = subprocess.Popen(
-        ["npx", "serve", "dist", "-l", "5000"],
-        cwd=map_dir,
-        shell=True
-    )
-
-    time.sleep(2)
-    webbrowser.open("http://localhost:5000")
-    print("Đã chạy server và mở trình duyệt tại http://localhost:5000")
-    print("Nhấn Ctrl+C để dừng server và quay lại menu.")
+    map_dir = os.path.join(os.getcwd(), 'map')
+    index_path = os.path.join(map_dir, 'index.html')
     
-    try:
-        while True:
-            if server_proc.poll() is not None:
-                break
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("\nĐã nhận Ctrl+C! Đang dừng server và khởi động lại...")
-        if server_proc:
-            server_proc.terminate()
-            try:
-                server_proc.wait(timeout=3)
-            except:
-                server_proc.kill()
-        server_proc = None
-        # Khởi động lại chương trình
-        subprocess.run([sys.executable, __file__])
-        sys.exit(0)
+    if not os.path.exists(index_path):
+        print(f"Không tìm thấy file: {index_path}")
+        return
+        
+    print(f"Đang mở file: {index_path}")
+    webbrowser.open('file://' + os.path.abspath(index_path))
 
 def run_checkin_crawler():
     print("Chạy CrawCheckin...")
-    # Cho phép nhập uid/username
-    username = input("Nhập uid hoặc username: ").strip()
-    if not username:
-        print("Không được để trống uid/username!")
-        return
-        
     # Chuyển vào thư mục CrawCheckin
     os.chdir("CrawCheckin")
     
-    # Chạy node main.js với username
+    # Chạy npm start
     process = subprocess.Popen(
-        ["node", "main.js", username],
+        ["npm", "start"],
         shell=True
     )
     

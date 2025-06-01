@@ -1,4 +1,4 @@
-const jsonData = [
+[
   {
     "textContent": "FacebookPhuc Duy đang ở Nhà B1 Đại Học Bách Khoa Hà Nội.stneoorpSd5n40401hi2ml 191g9f58hg09m7 tc17c16ú:h  gcuuu2gh5á  · Đã chia sẻ với Công khaiTestTất cả cảm xúc:1 1ThíchBình luậnSao chépChia sẻBình luận dưới tên Nguyễn PhátFacebook",
     "index": 1,
@@ -12,4 +12,4 @@ const jsonData = [
     "nameLocal": "Nhà B1 Đại Học Bách Khoa Hà Nội",
     "time": "Thứ Hai, 19 Tháng 5, 2025 lúc 16:59"
   }
-];
+]
