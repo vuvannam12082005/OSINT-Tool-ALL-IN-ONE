@@ -31,7 +31,6 @@ class Scraper:
             Options: A configured ChromeOptions instance to be used with Chrome WebDriver.
         """
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-notifications")
         chrome_options.add_argument("--disable-extensions")
         chrome_options.add_argument("--disable-popup-blocking")

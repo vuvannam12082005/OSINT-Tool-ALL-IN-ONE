@@ -284,41 +284,49 @@ def friend_layer_crawler(
     user_id: Annotated[str, typer.Argument(help="Facebook user id")]
 ) -> None:
     max_layers = typer.prompt(
-        "Nhập số tầng cần crawl (0 = chỉ lấy bạn bè trực tiếp)",
+        "📏 Nhập số tầng cần crawl (0 = chỉ lấy bạn bè trực tiếp)",
         type=int
     )
-    
-    friends_per_node = typer.prompt(
-        "Nhập số bạn bè cần lấy cho mỗi node",
-        type=int
-    )
-    
-    if friends_per_node <= 0:
-        typer.echo("Số lượng bạn bè phải lớn hơn 0")
-        return
-    
-    # Tính toán chi tiết số lượng bạn bè ở mỗi tầng
-    total_accounts = 0
-    typer.echo(f"\nThông tin crawl:")
+
+    friends_per_layer = []
+    for i in range(max_layers + 1):
+        num = typer.prompt(f"🔢 Nhập số bạn bè cần lấy ở tầng {i}", type=int)
+        if num <= 0:
+            typer.echo("❌ Số lượng bạn bè phải lớn hơn 0")
+            return
+        friends_per_layer.append(num)
+
+    typer.echo(f"\n📋 Thông tin crawl:")
     typer.echo(f"- Số tầng: {max_layers}")
-    typer.echo(f"- Số bạn bè mỗi node: {friends_per_node}")
-    typer.echo(f"\nDự đoán số lượng tài khoản:")
+    typer.echo(f"- Số bạn bè mỗi tầng: {friends_per_layer}")
+
+    # Tính toán chi tiết số lượng tài khoản ở mỗi tầng
+    layer_accounts = []  # Số tài khoản thực tế ở mỗi tầng
     
-    for layer in range(max_layers + 1):
-        accounts_in_layer = friends_per_node ** layer
-        total_accounts += accounts_in_layer
-        
-        if layer == 0:
-            typer.echo(f"- Tầng {layer} (gốc): 1 tài khoản")
-        else:
-            prev_layer_accounts = friends_per_node ** (layer - 1)
-            typer.echo(f"- Tầng {layer}: {prev_layer_accounts} x {friends_per_node} = {accounts_in_layer} tài khoản")
+    typer.echo(f"\n📈 Dự kiến số lượng tài khoản:")
     
-    typer.echo(f"\n- Tổng số tài khoản dự kiến: {total_accounts}")
+    # Tầng 0: số bạn bè lấy từ ID gốc
+    accounts_layer_0 = friends_per_layer[0]
+    layer_accounts.append(accounts_layer_0)
+    typer.echo(f"- Tầng 0: {accounts_layer_0} tài khoản (bạn bè của ID gốc)")
     
-    if not typer.confirm("Bạn có muốn tiếp tục không?"):
+    # Tính số tài khoản cho các tầng tiếp theo
+    for layer in range(1, max_layers + 1):
+        # Từ mỗi tài khoản tầng trước lấy friends_per_layer[layer] bạn bè
+        accounts_in_layer = layer_accounts[layer - 1] * friends_per_layer[layer]
+        layer_accounts.append(accounts_in_layer)
+        typer.echo(f"- Tầng {layer}: {layer_accounts[layer - 1]} x {friends_per_layer[layer]} = {accounts_in_layer} tài khoản")
+    
+    total_accounts = sum(layer_accounts)
+    typer.echo(f"\n🎯 Tổng số tài khoản dự kiến: {total_accounts}")
+    
+    # Hiển thị chi tiết tính toán
+    calculation_parts = [str(count) for count in layer_accounts]
+    typer.echo(f"💡 Chi tiết: {' + '.join(calculation_parts)} = {total_accounts}")
+
+    if not typer.confirm("❓ Bạn có muốn tiếp tục không?"):
         return
-    
-    rprint(f"Bắt đầu crawl dữ liệu từ {user_id} với {max_layers} tầng")
-    crawler = AccountFriendLayer(user_id, max_layers, friends_per_node)
+
+    rprint(f"\n🚀 Bắt đầu crawl dữ liệu từ [bold]{user_id}[/bold] với {max_layers} tầng")
+    crawler = AccountFriendLayer(user_id, max_layers, friends_per_layer)
     crawler.crawl()

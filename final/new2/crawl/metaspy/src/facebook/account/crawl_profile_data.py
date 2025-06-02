@@ -123,40 +123,31 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
             rprint("[yellow]  ! Không lấy được link ảnh bìa[/yellow]")
             return None
 
+    def get_all_profile_text(self):
+        try:
+            all_text_elements = self._driver.find_elements(
+                By.XPATH,
+                "//span[contains(@class, 'x193iq5w') or contains(@class, 'xt0psk2') or contains(@class, 'x1heor9g')]"
+            )
+            return [element.text.strip() for element in all_text_elements if element.text.strip()]
+        except Exception as e:
+            rprint(f"[yellow]  ! Lỗi khi lấy text từ trang profile: {str(e)}[/yellow]")
+            return []
+
     def get_followers_count(self):
         rprint("[cyan]→ Đang lấy số người theo dõi...[/cyan]")
         try:
-            selectors = [
-                "//a[contains(@href, '/followers')]//span[contains(@class, 'x193iq5w')]",
-                "//a[contains(@href, '/followers')]//span[contains(@class, 'xt0psk2')]",
-                "//div[contains(@class, 'x1lliihq')]//span[contains(text(), 'người theo dõi')]",
-                "//div[contains(@class, 'x1lliihq')]//span[contains(text(), 'followers')]"
-            ]
+            all_texts = self.get_all_profile_text()
             
-            for selector in selectors:
-                try:
-                    element = self._driver.find_element(By.XPATH, selector)
-                    count_text = element.text.strip()
+            for text in all_texts:
+                if any(c.isdigit() for c in text) and ("người theo dõi" in text.lower() or "followers" in text.lower()):
+                    if "•" in text:
+                        text = text.split("•")[0].strip()
                     
-                    count = ''.join(filter(lambda x: x.isdigit() or x in 'KMB,.', count_text))
-                    if count:
-                        rprint(f"[green]  ✓ Số người theo dõi: {count} (từ selector: {selector})[/green]")
-                        return count
-                except:
-                    continue
-                    
-            all_elements = self._driver.find_elements(
-                By.XPATH,
-                "//span[contains(text(), 'người theo dõi') or contains(text(), 'followers')]"
-            )
-            for element in all_elements:
-                count_text = element.text.strip()
-                if any(char.isdigit() for char in count_text):
-                    count = ''.join(filter(lambda x: x.isdigit() or x in 'KMB,.', count_text))
-                    rprint(f"[green]  ✓ Số người theo dõi: {count} (từ text chứa 'người theo dõi')[/green]")
-                    return count
-                    
-            rprint("[yellow]  ! Không tìm thấy số người theo dõi trong tất cả các selector[/yellow]")
+                    rprint(f"[green]  ✓ Số người theo dõi: {text}[/green]")
+                    return text.strip()
+                        
+            rprint("[yellow]  ! Không tìm thấy số người theo dõi[/yellow]")
             return "0"
         except Exception as e:
             rprint(f"[yellow]  ! Lỗi khi lấy số người theo dõi: {str(e)}[/yellow]")
@@ -165,37 +156,14 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
     def get_friends_count(self):
         rprint("[cyan]→ Đang lấy số lượng bạn bè...[/cyan]")
         try:
-            selectors = [
-                "//a[contains(@href, '/friends')]//span[contains(@class, 'x193iq5w')]",
-                "//a[contains(@href, '/friends')]//span[contains(@class, 'xt0psk2')]",
-                "//div[contains(@class, 'x1lliihq')]//span[contains(text(), 'bạn bè')]",
-                "//div[contains(@class, 'x1lliihq')]//span[contains(text(), 'friends')]"
-            ]
+            all_texts = self.get_all_profile_text()
             
-            for selector in selectors:
-                try:
-                    element = self._driver.find_element(By.XPATH, selector)
-                    count_text = element.text.strip()
-                    
-                    count = ''.join(filter(lambda x: x.isdigit() or x in 'KMB,.', count_text))
-                    if count:
-                        rprint(f"[green]  ✓ Số bạn bè: {count} (từ selector: {selector})[/green]")
-                        return count
-                except:
-                    continue
-                    
-            all_elements = self._driver.find_elements(
-                By.XPATH,
-                "//span[contains(text(), 'bạn bè') or contains(text(), 'friends')]"
-            )
-            for element in all_elements:
-                count_text = element.text.strip()
-                if any(char.isdigit() for char in count_text):
-                    count = ''.join(filter(lambda x: x.isdigit() or x in 'KMB,.', count_text))
-                    rprint(f"[green]  ✓ Số bạn bè: {count} (từ text chứa 'bạn bè')[/green]")
-                    return count
-                    
-            rprint("[yellow]  ! Không tìm thấy số bạn bè trong tất cả các selector[/yellow]")
+            for text in all_texts:
+                if ("bạn bè" in text.lower() or "friends" in text.lower() or "người bạn" in text.lower()) and any(c.isdigit() for c in text):
+                    rprint(f"[green]  ✓ Số bạn bè: {text}[/green]")
+                    return text.strip()
+                        
+            rprint("[yellow]  ! Không tìm thấy số bạn bè[/yellow]")
             return "0"
         except Exception as e:
             rprint(f"[yellow]  ! Lỗi khi lấy số bạn bè: {str(e)}[/yellow]")
@@ -475,7 +443,7 @@ def save_data(crawled_data: Dict[str, Any], original_data: Dict[str, Any], outpu
     # Lấy max_layers và friends_per_layer từ original_data, nếu thiếu thì báo lỗi
     try:
         max_layers = original_data['max_layers']
-        friends_per_layer = original_data['friends_per_layer']
+    #    friends_per_layer = original_data['friends_per_layer']
     except KeyError as e:
         raise ValueError(f"Thiếu trường {e} trong dữ liệu gốc, không thể lưu file chuẩn hóa!")
 
@@ -483,7 +451,7 @@ def save_data(crawled_data: Dict[str, Any], original_data: Dict[str, Any], outpu
     normalized_data = {
         'root_user': original_data.get('root_user', tree_data.get('id', '')),
         'max_layers': max_layers,
-        'friends_per_layer': friends_per_layer,
+    #    'friends_per_layer': friends_per_layer,
         'crawled_at': original_data.get('crawled_at', ''),
         'total_accounts': original_data.get('total_accounts', 0),
         'tree_data': tree_data
