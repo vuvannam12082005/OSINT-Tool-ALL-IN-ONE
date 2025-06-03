@@ -149,10 +149,34 @@
         if (hometownIndex !== -1) {
           info.hometown = general[hometownIndex].replace("Đến từ", "").trim();
         }
-        const educationIndex = general.findIndex(item => 
-          item.includes("Học tại") || item.includes("Từng học tại") || item.includes("Đã học tại"));
-        if (educationIndex !== -1) {
-          info.education = general[educationIndex].replace(/Học tại|Từng học tại|Đã học tại/g, "").trim();
+        // Ưu tiên lấy từ about_work_and_education
+        if (node.about_info && node.about_info.about_work_and_education && node.about_info.about_work_and_education.content && node.about_info.about_work_and_education.content.general) {
+          const eduArr = node.about_info.about_work_and_education.content.general;
+          // Lấy các dòng có từ 'học', 'đại học', ... nhưng loại bỏ các dòng không mong muốn và các dòng chỉ có mỗi 'Đại học', 'Cao đẳng', ...
+          const eduLines = eduArr.filter(item =>
+            /học|đại học|học tại|từng học tại|đã học tại/i.test(item) &&
+            !/trường trung học|trung học|secondary|high school|không có trường học nào để hiển thị|không có trường học|no school/i.test(item) &&
+            !/^(đại học|cao đẳng|trường trung học|trung học)$/i.test(item.trim())
+          );
+          if (eduLines.length > 0) {
+            info.education = eduLines.join('; ');
+          } else {
+            info.education = "Không có thông tin";
+          }
+        }
+        // Nếu không có, fallback sang about
+        if (info.education === 'Không có thông tin' && node.about_info && node.about_info.about && node.about_info.about.content && node.about_info.about.content.general) {
+          const general = node.about_info.about.content.general;
+          const eduLines = general.filter(item =>
+            /học|đại học|học tại|từng học tại|đã học tại/i.test(item) &&
+            !/trường trung học|trung học|secondary|high school|không có trường học nào để hiển thị|không có trường học|no school/i.test(item) &&
+            !/^(đại học|cao đẳng|trường trung học|trung học)$/i.test(item.trim())
+          );
+          if (eduLines.length > 0) {
+            info.education = eduLines.join('; ');
+          } else {
+            info.education = "Không có thông tin";
+          }
         }
       }
       if (info.hometown === 'Không có thông tin') {
@@ -241,6 +265,12 @@
         if (day && month && year) info.birthday = `${day.padStart(2,'0')}/${month.padStart(2,'0')}/${year}`;
         else if (day && month) info.birthday = `${day.padStart(2,'0')}/${month.padStart(2,'0')}`;
         else if (year) info.birthday = year;
+        // Tìm link locket.cam trong general
+        for (let i = 0; i < general.length; i++) {
+          if (typeof general[i] === 'string' && general[i].includes('locket.cam')) {
+            info.social.locket = general[i];
+          }
+        }
       }
       if (node.about_info && node.about_info.about_family_and_relationships && node.about_info.about_family_and_relationships.content && node.about_info.about_family_and_relationships.content.general) {
         const rel = node.about_info.about_family_and_relationships.content.general;
@@ -306,7 +336,8 @@
             facebook: u => `https://facebook.com/${u}`,
             twitter: u => `https://twitter.com/${u}`,
             youtube: u => `https://youtube.com/@${u}`,
-            linkedin: u => `https://linkedin.com/in/${u}`
+            linkedin: u => `https://linkedin.com/in/${u}`,
+            locket: u => u // dữ liệu đã là link hoàn chỉnh
           };
           for (const [mxh, username] of Object.entries(userInfo.social)) {
             const label = mxh.charAt(0).toUpperCase() + mxh.slice(1);
@@ -349,7 +380,7 @@
           `;
           nodes.push({
             id: node.id,
-            label: node.username || node.id,
+            label: node.title || node.username || node.id,
             color: {
               background: node.id === jsonData.root_user ? '#e74c3c' : '#3498db',
               border: node.id === jsonData.root_user ? '#c0392b' : '#2980b9',

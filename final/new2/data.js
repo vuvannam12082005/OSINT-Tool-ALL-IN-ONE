@@ -21,14 +21,15 @@ const jsonData = {
             "profile_url": "https://www.facebook.com/truong.nguyen.207923",
             "layer": 2,
             "children": [],
-            "profile_picture": "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHU_gZl&_nc_oc=AdmbAOcM1Aoamb4uSBPnR8Ciswu8MNB99ESK9MRvxZcIfpbYv0qFB9d88WXJLBshO9WnLuDZuAPv-w_tYVhtsfT8&_nc_zt=24&_nc_ht=scontent.fhan3-1.fna&oh=00_AfJ0qNd9ceY8hUSVmUbpieuM4JeRoRrGfLu9ZA-f0NaXbg&oe=68652BFA",
+            "title": "Trường Nguyễn",
+            "profile_picture": "https://scontent.fhph2-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHly2XD&_nc_oc=AdktUGksZ83s2yMW5MKFlp35P0qAbU57zl1oHPmIkPVFS4GMSji7Dtl9YcZjLmnsyV4&_nc_zt=24&_nc_ht=scontent.fhph2-1.fna&oh=00_AfIL-pWAXFAnX7uxsB_XQhxn0Do4XSHi2DfmAXOB1uHNzQ&oe=6866B5BA",
             "cover_photo": null,
             "followers_count": "2,4K người theo dõi",
             "friends_count": "0",
             "bio": "",
             "about_info": {
               "about": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about",
                 "content": {
                   "general": [
@@ -41,7 +42,7 @@ const jsonData = {
                 }
               },
               "about_work_and_education": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_work_and_education",
                 "content": {
                   "general": [
@@ -57,7 +58,7 @@ const jsonData = {
                 }
               },
               "about_places": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_places",
                 "content": {
                   "general": [
@@ -68,7 +69,7 @@ const jsonData = {
                 }
               },
               "about_contact_and_basic_info": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_contact_and_basic_info",
                 "content": {
                   "general": [
@@ -89,7 +90,7 @@ const jsonData = {
                 }
               },
               "about_privacy_and_legal_info": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_privacy_and_legal_info",
                 "content": {
                   "general": [
@@ -98,12 +99,12 @@ const jsonData = {
                 }
               },
               "about_profile_transparency": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_profile_transparency",
                 "content": {}
               },
               "about_family_and_relationships": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_family_and_relationships",
                 "content": {
                   "general": [
@@ -115,7 +116,7 @@ const jsonData = {
                 }
               },
               "about_details": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_details",
                 "content": {
                   "general": [
@@ -131,7 +132,7 @@ const jsonData = {
                 }
               },
               "about_life_events": {
-                "title": "",
+                "title": "Trường Nguyễn",
                 "url": "https://www.facebook.com/truong.nguyen.207923/about_life_events",
                 "content": {
                   "general": [
@@ -143,14 +144,15 @@ const jsonData = {
             "relationship_mark": "root"
           }
         ],
-        "profile_picture": "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHU_gZl&_nc_oc=AdmbAOcM1Aoamb4uSBPnR8Ciswu8MNB99ESK9MRvxZcIfpbYv0qFB9d88WXJLBshO9WnLuDZuAPv-w_tYVhtsfT8&_nc_zt=24&_nc_ht=scontent.fhan3-1.fna&oh=00_AfJ0qNd9ceY8hUSVmUbpieuM4JeRoRrGfLu9ZA-f0NaXbg&oe=68652BFA",
-        "cover_photo": "https://scontent.fhan3-2.fna.fbcdn.net/v/t1.6435-9/87029770_103590104571690_131150279537065984_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeG75fDAlo-JAcko1WT9riYJf1S7VVRDuTx_VLtVVEO5PL2Ek4ZN1uMHZ4PxzF-M41FNyOBsGkotByjgiIEqlrT9&_nc_ohc=OBy652mlDckQ7kNvwGker0e&_nc_oc=Adm3jkPOND7uJfjEJ-1EF5BvKlWl2WzMjQBcNDXjwBTCfzWR1O8c2frF_C5I1noQsDXi0Fq5k9eqcvs8EyN2lEtF&_nc_zt=23&_nc_ht=scontent.fhan3-2.fna&_nc_gid=tLG31m0UngMmk3LSYQu8pA&oh=00_AfI7iN5nl2xxOTWXFMBujxygNBQQujJDNslREg6cEWHZ_g&oe=68652FBC",
+        "title": "Bùi Quốc Trung",
+        "profile_picture": "https://scontent.fhph2-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHly2XD&_nc_oc=AdktUGksZ83s2yMW5MKFlp35P0qAbU57zl1oHPmIkPVFS4GMSji7Dtl9YcZjLmnsyV4&_nc_zt=24&_nc_ht=scontent.fhph2-1.fna&oh=00_AfIL-pWAXFAnX7uxsB_XQhxn0Do4XSHi2DfmAXOB1uHNzQ&oe=6866B5BA",
+        "cover_photo": "https://scontent.fhph2-1.fna.fbcdn.net/v/t1.6435-9/87029770_103590104571690_131150279537065984_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeG75fDAlo-JAcko1WT9riYJf1S7VVRDuTx_VLtVVEO5PL2Ek4ZN1uMHZ4PxzF-M41FNyOBsGkotByjgiIEqlrT9&_nc_ohc=OBy652mlDckQ7kNvwHYoWHH&_nc_oc=AdmrwI06cWYSPgNPj9Dz5i7FaxbZsSPIkG2fTsdvm2Mhi_IJ8sdNh1miYSvgdWQboXI&_nc_zt=23&_nc_ht=scontent.fhph2-1.fna&_nc_gid=v66O4l3-c8l0-krYWWonSw&oh=00_AfJsUAf4aNhjztZDJvkntqDWy2OgOtyge6lySZdXkTDCtA&oe=6866B97C",
         "followers_count": "0",
         "friends_count": "241 người bạn",
         "bio": "",
         "about_info": {
           "about": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about",
             "content": {
               "general": [
@@ -163,7 +165,7 @@ const jsonData = {
             }
           },
           "about_work_and_education": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_work_and_education",
             "content": {
               "general": [
@@ -178,7 +180,7 @@ const jsonData = {
             }
           },
           "about_places": {
-            "title": "Places",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_places",
             "content": {
               "general": [
@@ -189,7 +191,7 @@ const jsonData = {
             }
           },
           "about_contact_and_basic_info": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_contact_and_basic_info",
             "content": {
               "general": [
@@ -203,17 +205,17 @@ const jsonData = {
             }
           },
           "about_privacy_and_legal_info": {
-            "title": "Privacy And Legal Info",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_privacy_and_legal_info",
             "content": {}
           },
           "about_profile_transparency": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_profile_transparency",
             "content": {}
           },
           "about_family_and_relationships": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_family_and_relationships",
             "content": {
               "general": [
@@ -225,7 +227,7 @@ const jsonData = {
             }
           },
           "about_details": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_details",
             "content": {
               "general": [
@@ -241,7 +243,7 @@ const jsonData = {
             }
           },
           "about_life_events": {
-            "title": "",
+            "title": "Bùi Quốc Trung",
             "url": "https://www.facebook.com/trung.buiquoc.3154/about_life_events",
             "content": {
               "general": [
@@ -253,14 +255,15 @@ const jsonData = {
         "relationship_mark": "root"
       }
     ],
-    "profile_picture": "https://scontent.fhan3-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHU_gZl&_nc_oc=AdmbAOcM1Aoamb4uSBPnR8Ciswu8MNB99ESK9MRvxZcIfpbYv0qFB9d88WXJLBshO9WnLuDZuAPv-w_tYVhtsfT8&_nc_zt=24&_nc_ht=scontent.fhan3-1.fna&oh=00_AfJ0qNd9ceY8hUSVmUbpieuM4JeRoRrGfLu9ZA-f0NaXbg&oe=68652BFA",
+    "title": "Phuc Duy",
+    "profile_picture": "https://scontent.fhph2-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=ZTV74SdS3VoQ7kNvwHly2XD&_nc_oc=AdktUGksZ83s2yMW5MKFlp35P0qAbU57zl1oHPmIkPVFS4GMSji7Dtl9YcZjLmnsyV4&_nc_zt=24&_nc_ht=scontent.fhph2-1.fna&oh=00_AfIL-pWAXFAnX7uxsB_XQhxn0Do4XSHi2DfmAXOB1uHNzQ&oe=6866B5BA",
     "cover_photo": null,
     "followers_count": "0",
     "friends_count": "5 người bạn",
     "bio": "",
     "about_info": {
       "about": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about",
         "content": {
           "general": [
@@ -273,7 +276,7 @@ const jsonData = {
         }
       },
       "about_work_and_education": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_work_and_education",
         "content": {
           "general": [
@@ -287,7 +290,7 @@ const jsonData = {
         }
       },
       "about_places": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_places",
         "content": {
           "general": [
@@ -298,7 +301,7 @@ const jsonData = {
         }
       },
       "about_contact_and_basic_info": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_contact_and_basic_info",
         "content": {
           "general": [
@@ -324,7 +327,7 @@ const jsonData = {
         }
       },
       "about_privacy_and_legal_info": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_privacy_and_legal_info",
         "content": {}
       },
@@ -334,7 +337,7 @@ const jsonData = {
         "content": {}
       },
       "about_family_and_relationships": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_family_and_relationships",
         "content": {
           "general": [
@@ -346,7 +349,7 @@ const jsonData = {
         }
       },
       "about_details": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_details",
         "content": {
           "general": [
@@ -362,7 +365,7 @@ const jsonData = {
         }
       },
       "about_life_events": {
-        "title": "",
+        "title": "Phuc Duy",
         "url": "https://www.facebook.com/phuc.duy.980944/about_life_events",
         "content": {
           "general": [

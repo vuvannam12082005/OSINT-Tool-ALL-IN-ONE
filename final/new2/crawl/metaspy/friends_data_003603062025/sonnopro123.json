@@ -1,0 +1,20 @@
+{
+    "root_user": "sonnopro123",
+    "max_layers": 0,
+    "crawled_at": "2025-06-03 00:37:01",
+    "total_accounts": 1,
+    "tree_data": {
+        "id": "sonnopro123",
+        "profile_url": "https://www.facebook.com/sonnopro123",
+        "layer": 0,
+        "children": [
+            {
+                "id": "khanh.linhh.292827",
+                "username": "khanh.linhh.292827",
+                "profile_url": "https://www.facebook.com/khanh.linhh.292827",
+                "layer": 1,
+                "children": []
+            }
+        ]
+    }
+}

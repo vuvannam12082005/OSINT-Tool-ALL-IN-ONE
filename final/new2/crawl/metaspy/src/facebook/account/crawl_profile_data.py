@@ -30,7 +30,7 @@ except (ImportError, ValueError):
 class CustomBaseFacebookScraper(BaseFacebookScraper):
     def __init__(self, user_id: str, base_url: str):
         chrome_options = Options()
-        chrome_options.add_argument('--headless')
+        chrome_options.add_argument("--headless")
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
@@ -168,7 +168,30 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
         except Exception as e:
             rprint(f"[yellow]  ! Lỗi khi lấy số bạn bè: {str(e)}[/yellow]")
             return "0"
-
+    def get_name(self):
+        rprint("[cyan]→ Đang lấy tên Facebook...[/cyan]")
+        try:
+            name_element = self.wait.until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "h1.x1heor9g"))
+            )
+            name = name_element.text.strip()
+            if name == "":
+                raise Exception("Name is null")
+            rprint(f"[green]  ✓ Đã lấy được tên Facebook: {name}[/green]")
+            return name
+        except:
+            sleep(5)
+            name_element = self._driver.find_elements(
+                By.CSS_SELECTOR,
+                "h1.x1heor9g, span.x193iq5w.xeuugli.x13faqbe.x1vvkbs.x1xmvt09.x1lliihq.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x4zkp8e.x676frb.x1nxh6w3.x1sibtaa.x1s688f.xzsf02u"
+            )
+            if len(name_element) >= 3:
+                #rprint(f"{name_element[0]}")
+                name = name_element[2].text.strip()
+                rprint(f"[green]  ✓ Đã lấy được tên Facebook: {name}[/green]")
+                return name
+        rprint("[yellow]  ! Không lấy được tên Facebook[/yellow]")
+        return None
     def get_bio(self):
         rprint("[cyan]→ Đang lấy tiểu sử...[/cyan]")
         try:
@@ -240,15 +263,18 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
                     "content": {}
                 }
                 
+                # Lấy tên Facebook từ hàm get_name()
                 try:
-                    title_element = self.wait.until(
-                        EC.presence_of_element_located((By.XPATH, "//span[contains(@class, 'x193iq5w') and contains(@class, 'xeuugli')]"))
-                    )
-                    section_data["title"] = title_element.text.strip()
-                    rprint(f"[green]  ✓ Tiêu đề section: {section_data['title']}[/green]")
-                except:
+                    name = self.get_name()
+                    if name:
+                        section_data["title"] = name
+                        rprint(f"[green]  ✓ Tiêu đề section: {section_data['title']}[/green]")
+                    else:
+                        section_data["title"] = section.replace("about_", "").replace("_", " ").title()
+                        rprint(f"[yellow]  ! Không lấy được tên Facebook, sử dụng tiêu đề mặc định: {section_data['title']}[/yellow]")
+                except Exception as e:
                     section_data["title"] = section.replace("about_", "").replace("_", " ").title()
-                    rprint(f"[yellow]  ! Sử dụng tiêu đề mặc định: {section_data['title']}[/yellow]")
+                    rprint(f"[yellow]  ! Lỗi khi lấy tên Facebook: {str(e)}, sử dụng tiêu đề mặc định: {section_data['title']}[/yellow]")
 
                 content_elements = self._driver.find_elements(
                     By.XPATH,
@@ -292,7 +318,7 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
             
             sleep(1)
         
-        return about_data
+        return about_data   
 
     def crawl_profile(self):
         data = {}
@@ -307,6 +333,7 @@ class FacebookProfileCrawler(CustomBaseFacebookScraper):
             sleep(2)
             
             rprint("\n[cyan]→ Thu thập thông tin cơ bản...[/cyan]")
+            data['title'] = self.get_name()
             data['profile_picture'] = self.get_profile_picture()
             data['cover_photo'] = self.get_cover_photo()
             data['followers_count'] = self.get_followers_count()
@@ -414,70 +441,64 @@ def read_json_file(json_file):
         return json.load(f)
 
 def save_data(crawled_data: Dict[str, Any], original_data: Dict[str, Any], output_folder: str, base_filename: str):
-    rprint("\n[bold]Bắt đầu quá trình lưu dữ liệu[/bold]")
+    rprint("\n[bold]📦 Bắt đầu quá trình lưu dữ liệu[/bold]")
 
     def update_tree_data(node: Dict[str, Any]):
         if not isinstance(node, dict) or not node:
-            rprint("[yellow]Bỏ qua node không hợp lệ[/yellow]")
+            rprint("⚠️ [yellow]Bỏ qua node không hợp lệ[/yellow]")
             return
 
         if "id" in node:
             node_id = node["id"]
             if node_id in crawled_data:
                 node.update(crawled_data[node_id])
-                rprint(f"[green]Đã cập nhật dữ liệu cho node: {node_id}[/green]")
+                rprint(f"✅ [green]Đã cập nhật dữ liệu cho node: {node_id}[/green]")
 
         children = node.get("children", [])
         if isinstance(children, list):
-            rprint(f"[cyan]Cập nhật {len(children)} node con[/cyan]")
+            rprint(f"🔁 [cyan]Cập nhật {len(children)} node con[/cyan]")
             for child in children:
                 update_tree_data(child)
 
     if not isinstance(original_data, dict) or "tree_data" not in original_data:
-        rprint("[red]Cấu trúc dữ liệu gốc không hợp lệ: Thiếu key 'tree_data'[/red]")
+        rprint("❌ [red]Cấu trúc dữ liệu gốc không hợp lệ: Thiếu key 'tree_data'[/red]")
         return
 
-    rprint("\n[bold]Bắt đầu cập nhật dữ liệu vào cây[/bold]")
+    rprint("\n🌳 [bold]Bắt đầu cập nhật dữ liệu vào cây[/bold]")
     update_tree_data(original_data["tree_data"])
 
-    # Lấy max_layers và friends_per_layer từ original_data, nếu thiếu thì báo lỗi
     try:
         max_layers = original_data['max_layers']
-    #    friends_per_layer = original_data['friends_per_layer']
     except KeyError as e:
-        raise ValueError(f"Thiếu trường {e} trong dữ liệu gốc, không thể lưu file chuẩn hóa!")
+        raise ValueError(f"❌ Thiếu trường {e} trong dữ liệu gốc, không thể lưu file chuẩn hóa!")
 
     tree_data = original_data["tree_data"]
     normalized_data = {
         'root_user': original_data.get('root_user', tree_data.get('id', '')),
         'max_layers': max_layers,
-    #    'friends_per_layer': friends_per_layer,
         'crawled_at': original_data.get('crawled_at', ''),
         'total_accounts': original_data.get('total_accounts', 0),
         'tree_data': tree_data
     }
 
-    # Đảm bảo thư mục đã chọn tồn tại
     os.makedirs(output_folder, exist_ok=True)
 
-    # Sinh tên file mới data_{count}_{base_filename}
     existing_files = os.listdir(output_folder)
-    pattern = re.compile(r'data_(\d+)_' + re.escape(base_filename))
-    max_idx = -1
+    pattern = re.compile(r'data_(\d+)_' + re.escape(base_filename) + r'\.json$')
+    max_idx = 0
     for fname in existing_files:
         m = pattern.match(fname)
         if m:
             idx = int(m.group(1))
-            if idx > max_idx:
-                max_idx = idx
-    new_idx = max_idx + 1
+            max_idx = max(max_idx, idx)
+    new_idx = max_idx
     new_filename = f"data_{new_idx}_{base_filename}"
     output_path = os.path.join(output_folder, new_filename)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(normalized_data, f, ensure_ascii=False, indent=2)
 
-    rprint(f"\n[bold green]Đã lưu dữ liệu thành công vào {output_path}[/bold green]")
+    rprint(f"\n💾 [bold green]Đã lưu dữ liệu thành công vào {output_path}[/bold green]")
 
 def main():
     rprint("[bold cyan]Bắt đầu chương trình chính...[/bold cyan]")
