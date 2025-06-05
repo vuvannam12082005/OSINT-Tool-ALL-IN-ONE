@@ -13,6 +13,9 @@ from ...logs import Logs
 from ...repository import person_repository, friend_repository, crawlerqueue_repository
 from ...utils import output
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 logs = Logs()
 
 
@@ -91,7 +94,7 @@ class AccountFriend(BaseFacebookScraper):
                 main_div = WebDriverWait(self._driver, 5).until(
                         EC.presence_of_element_located((By.CSS_SELECTOR, "div[role='main']"))
                     )
-            	rprint("Đã tìm thấy container danh sách bạn bè!")
+                rprint("Đã tìm thấy container danh sách bạn bè!")
                 elements = main_div.find_elements(By.CSS_SELECTOR, "a.x1i10hfl span")
                 
                 current_count = len(extracted_elements)
