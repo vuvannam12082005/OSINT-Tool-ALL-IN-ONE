@@ -60,7 +60,10 @@ class AccountFriend(BaseFacebookScraper):
 
         try:
             rprint("Đang thu thập danh sách bạn bè ban đầu...")
-            main_div = self._driver.find_element(By.CSS_SELECTOR, "div.xyamay9.x1pi30zi.x1l90r2v.x1swvt13")
+            main_div = WebDriverWait(self._driver, 5).until(
+                        EC.presence_of_element_located((By.CSS_SELECTOR, "div[role='main']"))
+                    )
+            rprint("Đã tìm thấy container danh sách bạn bè!")
             elements = main_div.find_elements(By.CSS_SELECTOR, "a.x1i10hfl span")
             rprint(f"Tìm thấy {len(elements)} bạn bè")
             
@@ -85,7 +88,10 @@ class AccountFriend(BaseFacebookScraper):
                 self._driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 sleep(3)
 
-                main_div = self._driver.find_element(By.CSS_SELECTOR, "div.xyamay9.x1pi30zi.x1l90r2v.x1swvt13")
+                main_div = WebDriverWait(self._driver, 5).until(
+                        EC.presence_of_element_located((By.CSS_SELECTOR, "div[role='main']"))
+                    )
+            	rprint("Đã tìm thấy container danh sách bạn bè!")
                 elements = main_div.find_elements(By.CSS_SELECTOR, "a.x1i10hfl span")
                 
                 current_count = len(extracted_elements)
