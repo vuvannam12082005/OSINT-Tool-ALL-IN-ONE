@@ -1,0 +1,27 @@
+{
+    "root_user": "phuc.duy.980944",
+    "max_layers": 0,
+    "crawled_at": "2025-06-06 14:27:47",
+    "total_accounts": 2,
+    "tree_data": {
+        "id": "phuc.duy.980944",
+        "profile_url": "https://www.facebook.com/phuc.duy.980944",
+        "layer": 0,
+        "children": [
+            {
+                "id": "trung.buiquoc.3154",
+                "username": "trung.buiquoc.3154",
+                "profile_url": "https://www.facebook.com/trung.buiquoc.3154",
+                "layer": 1,
+                "children": []
+            },
+            {
+                "id": "vu.van.nam.oneforall147",
+                "username": "vu.van.nam.oneforall147",
+                "profile_url": "https://www.facebook.com/vu.van.nam.oneforall147",
+                "layer": 1,
+                "children": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "results": {
+    "post_id": "122113064144859412",
+    "type": "post",
+    "url": "https://www.facebook.com/phuc.duy.980944/posts/pfbid02ovsBp9ZkqgYcC3ryt2HFNBGYcppYuexkwbzfa7Cn3rzLWzPyhxJZDrXhbTR7oGRrl",
+    "message": null,
+    "timestamp": 1748334310,
+    "comments_count": 0,
+    "reactions_count": 0,
+    "reshare_count": 0,
+    "reactions": {
+      "angry": 0,
+      "care": 0,
+      "haha": 0,
+      "like": 0,
+      "love": 0,
+      "sad": 0,
+      "wow": 0
+    },
+    "author": {
+      "id": "pfbid0234ps7PFVWQqvfgcj5g8w9CKtVNiW37p9zsCmKzY6cdhBnVvVqii9rATxsrqWGPL7l",
+      "name": "Phuc Duy",
+      "url": "https://www.facebook.com/phuc.duy.980944",
+      "profile_picture_url": "https://scontent.fssz9-1.fna.fbcdn.net/v/t39.30808-1/495579085_122101349294859412_4510740384415129150_n.jpg?stp=cp0_dst-jpg_s80x80_tt6&_nc_cat=101&ccb=1-7&_nc_sid=e99d92&_nc_ohc=rM6p2dpYhBEQ7kNvwFFnyJ9&_nc_oc=AdlGdznJVl6ZAApj1aS-dxzlFQe7JpFQAko7WtIb_9TPIlO0FOZjquep6dU6TDpCn54&_nc_zt=24&_nc_ht=scontent.fssz9-1.fna&_nc_gid=_N7NgyWo1oeOpJcG0moVxA&oh=00_AfJxm_WlAEl4Hkl3C-CsV6IFIDip_jI_PtnkQzrf6usWlw&oe=683CB647"
+    },
+    "image": null,
+    "video": null,
+    "album_preview": null,
+    "video_files": null,
+    "video_thumbnail": null,
+    "external_url": null,
+    "attached_event": null,
+    "attached_post": null,
+    "attached_post_url": null
+  }
+}

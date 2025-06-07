@@ -1,0 +1,103 @@
+{
+    "root_user": "100060304890131",
+    "max_layers": 2,
+    "friends_per_layer": 2,
+    "crawled_at": "2025-05-23 22:12:55",
+    "total_accounts": 13,
+    "tree_data": {
+        "id": "100060304890131",
+        "profile_url": "https://www.facebook.com/profile.php?id=100060304890131",
+        "layer": 0,
+        "children": [
+            {
+                "id": "lethikimlien205",
+                "username": "lethikimlien205",
+                "profile_url": "https://www.facebook.com/lethikimlien205",
+                "layer": 1,
+                "children": [
+                    {
+                        "id": "NTienMing",
+                        "username": "NTienMing",
+                        "profile_url": "https://www.facebook.com/NTienMing",
+                        "layer": 2,
+                        "children": []
+                    },
+                    {
+                        "id": "ngusac.tia",
+                        "username": "ngusac.tia",
+                        "profile_url": "https://www.facebook.com/ngusac.tia",
+                        "layer": 2,
+                        "children": [
+                            {
+                                "id": "tuan.ace.1221",
+                                "username": "tuan.ace.1221",
+                                "profile_url": "https://www.facebook.com/tuan.ace.1221",
+                                "layer": 3,
+                                "children": []
+                            },
+                            {
+                                "id": "long.vuthanh.94402",
+                                "username": "long.vuthanh.94402",
+                                "profile_url": "https://www.facebook.com/long.vuthanh.94402",
+                                "layer": 3,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "pham.dung.623162",
+                "username": "pham.dung.623162",
+                "profile_url": "https://www.facebook.com/pham.dung.623162",
+                "layer": 1,
+                "children": [
+                    {
+                        "id": "nguyen.minh.hieu.883578",
+                        "username": "nguyen.minh.hieu.883578",
+                        "profile_url": "https://www.facebook.com/nguyen.minh.hieu.883578",
+                        "layer": 2,
+                        "children": [
+                            {
+                                "id": "duong.nguyentuan.528",
+                                "username": "duong.nguyentuan.528",
+                                "profile_url": "https://www.facebook.com/duong.nguyentuan.528",
+                                "layer": 3,
+                                "children": []
+                            },
+                            {
+                                "id": "hung.anh.560364",
+                                "username": "hung.anh.560364",
+                                "profile_url": "https://www.facebook.com/hung.anh.560364",
+                                "layer": 3,
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "lucnguyen2912",
+                        "username": "lucnguyen2912",
+                        "profile_url": "https://www.facebook.com/lucnguyen2912",
+                        "layer": 2,
+                        "children": [
+                            {
+                                "id": "lammmobile",
+                                "username": "lammmobile",
+                                "profile_url": "https://www.facebook.com/lammmobile",
+                                "layer": 3,
+                                "children": []
+                            },
+                            {
+                                "id": "wruherexd",
+                                "username": "wruherexd",
+                                "profile_url": "https://www.facebook.com/wruherexd",
+                                "layer": 3,
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

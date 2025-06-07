@@ -1,0 +1,16 @@
+{
+    "root_user": "NTienMing",
+    "max_layers": 1,
+    "friends_per_layer": [
+        2,
+        3
+    ],
+    "crawled_at": "2025-06-02 20:23:20",
+    "total_accounts": 1,
+    "tree_data": {
+        "id": "NTienMing",
+        "profile_url": "https://www.facebook.com/NTienMing",
+        "layer": 0,
+        "children": []
+    }
+}
