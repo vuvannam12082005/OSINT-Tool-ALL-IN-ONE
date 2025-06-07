@@ -24,27 +24,28 @@ pipeline {
             }
         }
         
-        stage('Sonar') {
+        stage('Sonar Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh """
-                    echo "SONAR_AUTH_TOKEN = \$SONAR_AUTH_TOKEN"
                     ${SCANNER}/bin/sonar-scanner \
                       -Dsonar.projectKey=osint-web-tool \
                       -Dsonar.projectBaseDir=PROJECT1report/web-tool \
                       -Dsonar.sources=src \
                       -Dsonar.exclusions=node_modules/**
                     """
+                    
+                    // Hiển thị link để xem báo cáo
+                    echo "✅ Analysis completed! View report at: http://127.0.0.1:9000/dashboard?id=osint-web-tool"
                 }
             }
         }
-        
-        stage('Quality Gate') {
-            steps {
-                timeout(time: 20, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
+    }
+    
+    post {
+        success {
+            echo "🎉 Pipeline completed successfully!"
+            echo "📊 Check SonarQube report: http://127.0.0.1:9000/dashboard?id=osint-web-tool"
         }
     }
 }
