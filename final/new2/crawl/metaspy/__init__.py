@@ -1,3 +1,0 @@
-"""
-MetaSpy - Facebook Data Crawler
-""" 
