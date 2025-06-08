@@ -1,0 +1,21 @@
+{
+    "root_user": "61575782378737",
+    "max_layers": 0,
+    "friends_per_layer": 1,
+    "crawled_at": "2025-05-25 13:08:25",
+    "total_accounts": 2,
+    "tree_data": {
+        "id": "61575782378737",
+        "profile_url": "https://www.facebook.com/profile.php?id=61575782378737",
+        "layer": 0,
+        "children": [
+            {
+                "id": "trung.buiquoc.3154",
+                "username": "trung.buiquoc.3154",
+                "profile_url": "https://www.facebook.com/trung.buiquoc.3154",
+                "layer": 1,
+                "children": []
+            }
+        ]
+    }
+}

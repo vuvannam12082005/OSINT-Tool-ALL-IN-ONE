@@ -1,0 +1,373 @@
+{
+  "root_user": "phuc.duy.980944",
+  "max_layers": 2,
+  "crawled_at": "2025-06-07 22:33:03",
+  "total_accounts": 3,
+  "tree_data": {
+    "id": "phuc.duy.980944",
+    "profile_url": "https://www.facebook.com/phuc.duy.980944",
+    "layer": 0,
+    "children": [
+      {
+        "id": "trung.buiquoc.3154",
+        "username": "trung.buiquoc.3154",
+        "profile_url": "https://www.facebook.com/trung.buiquoc.3154",
+        "layer": 1,
+        "children": [
+          {
+            "id": "login",
+            "username": "login",
+            "profile_url": "https://www.facebook.com/login",
+            "layer": 2,
+            "children": [
+              {
+                "id": "help",
+                "username": "help",
+                "profile_url": "https://www.facebook.com/help",
+                "layer": 3,
+                "children": [],
+                "title": "Chúng tôi có thể giúp gì cho bạn?",
+                "profile_picture": "https://scontent.fhan20-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s50x50&_nc_cat=1&ccb=1-7&_nc_sid=6e4a0e&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=4-uERIjOoYAQ7kNvwGqaHtH&_nc_oc=AdnubuMf4U62iYv5zFTjUhUuL9fQHMRrEdHLDRNDQ_AuXAvAKgI_tVk_fxaiXR-0yXs&_nc_zt=24&_nc_ht=scontent.fhan20-1.fna&oh=00_AfMblt8pNltAQ2nYT0PgnjjNZ148wdbqubghbHlxW2YEZg&oe=686BC37A",
+                "cover_photo": null,
+                "followers_count": "0",
+                "friends_count": "0",
+                "bio": "",
+                "about_info": {
+                  "about": {
+                    "title": "About",
+                    "url": "https://www.facebook.com/help/about",
+                    "content": {}
+                  },
+                  "about_work_and_education": {
+                    "title": "Work And Education",
+                    "url": "https://www.facebook.com/help/about_work_and_education",
+                    "content": {}
+                  },
+                  "about_places": {
+                    "title": "Places",
+                    "url": "https://www.facebook.com/help/about_places",
+                    "content": {}
+                  },
+                  "about_contact_and_basic_info": {
+                    "title": "Contact And Basic Info",
+                    "url": "https://www.facebook.com/help/about_contact_and_basic_info",
+                    "content": {}
+                  },
+                  "about_privacy_and_legal_info": {
+                    "title": "Nguyễn Phát",
+                    "url": "https://www.facebook.com/help/about_privacy_and_legal_info",
+                    "content": {}
+                  },
+                  "about_profile_transparency": {
+                    "title": "Profile Transparency",
+                    "url": "https://www.facebook.com/help/about_profile_transparency",
+                    "content": {}
+                  },
+                  "about_family_and_relationships": {
+                    "title": "Family And Relationships",
+                    "url": "https://www.facebook.com/help/about_family_and_relationships",
+                    "content": {}
+                  },
+                  "about_details": {
+                    "title": "Details",
+                    "url": "https://www.facebook.com/help/about_details",
+                    "content": {}
+                  },
+                  "about_life_events": {
+                    "title": "Life Events",
+                    "url": "https://www.facebook.com/help/about_life_events",
+                    "content": {}
+                  }
+                },
+                "relationship_mark": "root"
+              }
+            ],
+            "title": "Trang chủ",
+            "profile_picture": "https://scontent.fhan20-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=4-uERIjOoYAQ7kNvwGqaHtH&_nc_oc=AdnubuMf4U62iYv5zFTjUhUuL9fQHMRrEdHLDRNDQ_AuXAvAKgI_tVk_fxaiXR-0yXs&_nc_zt=24&_nc_ht=scontent.fhan20-1.fna&oh=00_AfOhk3Ulj5RYwCF0n-GziAva7v64vKwlrsrCcXBAUssPRw&oe=686BC37A",
+            "cover_photo": null,
+            "followers_count": "0",
+            "friends_count": "0",
+            "bio": "",
+            "about_info": {
+              "about": {
+                "title": "About",
+                "url": "https://www.facebook.com/login/about",
+                "content": {}
+              },
+              "about_work_and_education": {
+                "title": "Work And Education",
+                "url": "https://www.facebook.com/login/about_work_and_education",
+                "content": {}
+              },
+              "about_places": {
+                "title": "Places",
+                "url": "https://www.facebook.com/login/about_places",
+                "content": {}
+              },
+              "about_contact_and_basic_info": {
+                "title": "Contact And Basic Info",
+                "url": "https://www.facebook.com/login/about_contact_and_basic_info",
+                "content": {}
+              },
+              "about_privacy_and_legal_info": {
+                "title": "Privacy And Legal Info",
+                "url": "https://www.facebook.com/login/about_privacy_and_legal_info",
+                "content": {}
+              },
+              "about_profile_transparency": {
+                "title": "Profile Transparency",
+                "url": "https://www.facebook.com/login/about_profile_transparency",
+                "content": {}
+              },
+              "about_family_and_relationships": {
+                "title": "Family And Relationships",
+                "url": "https://www.facebook.com/login/about_family_and_relationships",
+                "content": {}
+              },
+              "about_details": {
+                "title": "Details",
+                "url": "https://www.facebook.com/login/about_details",
+                "content": {}
+              },
+              "about_life_events": {
+                "title": "Life Events",
+                "url": "https://www.facebook.com/login/about_life_events",
+                "content": {}
+              }
+            },
+            "relationship_mark": "root"
+          }
+        ],
+        "title": "Bùi Quốc Trung",
+        "profile_picture": "https://scontent.fhan20-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=4-uERIjOoYAQ7kNvwGqaHtH&_nc_oc=AdnubuMf4U62iYv5zFTjUhUuL9fQHMRrEdHLDRNDQ_AuXAvAKgI_tVk_fxaiXR-0yXs&_nc_zt=24&_nc_ht=scontent.fhan20-1.fna&oh=00_AfOhk3Ulj5RYwCF0n-GziAva7v64vKwlrsrCcXBAUssPRw&oe=686BC37A",
+        "cover_photo": "https://scontent.fhan2-5.fna.fbcdn.net/v/t1.6435-9/87029770_103590104571690_131150279537065984_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeG75fDAlo-JAcko1WT9riYJf1S7VVRDuTx_VLtVVEO5PL2Ek4ZN1uMHZ4PxzF-M41FNyOBsGkotByjgiIEqlrT9&_nc_ohc=INBbe49FQs4Q7kNvwGVMMVK&_nc_oc=AdnQFp9OQbbNhx36uoVkGZDf-LVe2UjWMdARgvYXbh1kHmd1uIeo6EcYtzEk0eYm_qo&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=0B6T-H0KwusObgKU0uB4xw&oh=00_AfP0zd4b--ll6Kl2tPHlXqEyyf-qYIROOHSwz4BH7SgY8Q&oe=686BC73C",
+        "followers_count": "0",
+        "friends_count": "242 người bạn",
+        "bio": "",
+        "about_info": {
+          "about": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about",
+            "content": {
+              "general": [
+                "Làm việc tại \nThị Xã Thái Hòa",
+                "Từng học tại \nHọc viện Kỹ thuật mật mã - KMA",
+                "Sống tại \nThái Hõa, Nghệ An, Vietnam",
+                "Đến từ \nVinh",
+                "Không có thông tin mối quan hệ nào để hiển thị"
+              ]
+            }
+          },
+          "about_work_and_education": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_work_and_education",
+            "content": {
+              "general": [
+                "Công việc",
+                "Làm việc tại \nThị Xã Thái Hòa",
+                "Đại học",
+                "Từng học tại \nHọc viện Kỹ thuật mật mã - KMA",
+                "Trường trung học",
+                "Đã học tại THCS hòa hiếu 2",
+                "Đã học tại \nTrường THPT Thái Hòa - Thị Xã Thái Hòa - Tỉnh Nghệ An"
+              ]
+            }
+          },
+          "about_places": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_places",
+            "content": {
+              "general": [
+                "Nơi từng sống",
+                "Thái Hõa, Nghệ An, Vietnam",
+                "Vinh"
+              ]
+            }
+          },
+          "about_contact_and_basic_info": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_contact_and_basic_info",
+            "content": {
+              "general": [
+                "Thông tin liên hệ",
+                "Không có thông tin liên hệ nào để hiển thị",
+                "Các trang web và liên kết mạng xã hội",
+                "Không có liên kết để hiển thị",
+                "Thông tin cơ bản",
+                "Không có thông tin cơ bản nào để hiển thị"
+              ]
+            }
+          },
+          "about_privacy_and_legal_info": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_privacy_and_legal_info",
+            "content": {}
+          },
+          "about_profile_transparency": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_profile_transparency",
+            "content": {}
+          },
+          "about_family_and_relationships": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_family_and_relationships",
+            "content": {
+              "general": [
+                "Mối quan hệ",
+                "Không có thông tin mối quan hệ nào để hiển thị",
+                "Thành viên trong gia đình",
+                "Không có thành viên gia đình nào để hiển thị"
+              ]
+            }
+          },
+          "about_details": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_details",
+            "content": {
+              "general": [
+                "Giới thiệu về Trung",
+                "Không có chi tiết nào khác để hiển thị",
+                "Cách đọc tên",
+                "Không có cách đọc tên để hiển thị",
+                "Các tên khác",
+                "Không có tên khác để hiển thị",
+                "Trích dẫn yêu thích",
+                "Không có trích dẫn yêu thích nào để hiển thị"
+              ]
+            }
+          },
+          "about_life_events": {
+            "title": "Bùi Quốc Trung",
+            "url": "https://www.facebook.com/trung.buiquoc.3154/about_life_events",
+            "content": {
+              "general": [
+                "Không có sự kiện trong đời để hiển thị"
+              ]
+            }
+          }
+        },
+        "relationship_mark": "root"
+      }
+    ],
+    "title": "Phuc Duy",
+    "profile_picture": "https://scontent.fhan20-1.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=cp0_dst-png_s40x40&_nc_cat=1&ccb=1-7&_nc_sid=b224c7&_nc_eui2=AeErUHX37s7vsVS1jED4UzqWWt9TLzuBU1Ba31MvO4FTUEXWik7DfzStMZNCJ6sFb09WSyFSF7_yfRM8IlsIiwrn&_nc_ohc=4-uERIjOoYAQ7kNvwGqaHtH&_nc_oc=AdnubuMf4U62iYv5zFTjUhUuL9fQHMRrEdHLDRNDQ_AuXAvAKgI_tVk_fxaiXR-0yXs&_nc_zt=24&_nc_ht=scontent.fhan20-1.fna&oh=00_AfOhk3Ulj5RYwCF0n-GziAva7v64vKwlrsrCcXBAUssPRw&oe=686BC37A",
+    "cover_photo": null,
+    "followers_count": "0",
+    "friends_count": "5 người bạn",
+    "bio": "",
+    "about_info": {
+      "about": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about",
+        "content": {
+          "general": [
+            "Không có nơi làm việc để hiển thị",
+            "Từng học tại \nĐại học Bách khoa Hà Nội - Hanoi University of Science and Technology",
+            "Sống tại \nHà Nội",
+            "Đến từ \nThái Hòa, Nghệ An",
+            "Không có thông tin mối quan hệ nào để hiển thị"
+          ]
+        }
+      },
+      "about_work_and_education": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_work_and_education",
+        "content": {
+          "general": [
+            "Công việc",
+            "Không có nơi làm việc để hiển thị",
+            "Đại học",
+            "Từng học tại \nĐại học Bách khoa Hà Nội - Hanoi University of Science and Technology",
+            "Trường trung học",
+            "Không có trường học nào để hiển thị"
+          ]
+        }
+      },
+      "about_places": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_places",
+        "content": {
+          "general": [
+            "Nơi từng sống",
+            "Hà Nội",
+            "Thái Hòa, Nghệ An"
+          ]
+        }
+      },
+      "about_contact_and_basic_info": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_contact_and_basic_info",
+        "content": {
+          "general": [
+            "Thông tin liên hệ",
+            "duyphuchust1011@gmail.com",
+            "Email",
+            "Email",
+            "Các trang web và liên kết mạng xã hội",
+            "duyphuchust1011",
+            "X",
+            "X",
+            "duyphuchust1011",
+            "Instagram",
+            "Instagram",
+            "Thông tin cơ bản",
+            "10 tháng 11",
+            "Ngày sinh",
+            "Ngày sinh",
+            "2005",
+            "Năm sinh",
+            "Năm sinh"
+          ]
+        }
+      },
+      "about_privacy_and_legal_info": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_privacy_and_legal_info",
+        "content": {}
+      },
+      "about_profile_transparency": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_profile_transparency",
+        "content": {}
+      },
+      "about_family_and_relationships": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_family_and_relationships",
+        "content": {
+          "general": [
+            "Mối quan hệ",
+            "Không có thông tin mối quan hệ nào để hiển thị",
+            "Thành viên trong gia đình",
+            "Không có thành viên gia đình nào để hiển thị"
+          ]
+        }
+      },
+      "about_details": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_details",
+        "content": {
+          "general": [
+            "Giới thiệu về Phuc",
+            "Không có chi tiết nào khác để hiển thị",
+            "Cách đọc tên",
+            "Không có cách đọc tên để hiển thị",
+            "Các tên khác",
+            "Không có tên khác để hiển thị",
+            "Trích dẫn yêu thích",
+            "Không có trích dẫn yêu thích nào để hiển thị"
+          ]
+        }
+      },
+      "about_life_events": {
+        "title": "Phuc Duy",
+        "url": "https://www.facebook.com/phuc.duy.980944/about_life_events",
+        "content": {
+          "general": [
+            "Không có sự kiện trong đời để hiển thị"
+          ]
+        }
+      }
+    },
+    "relationship_mark": "root"
+  }
+}

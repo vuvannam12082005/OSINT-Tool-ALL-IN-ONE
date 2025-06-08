@@ -1,0 +1,39 @@
+{
+    "root_user": "NTienMing",
+    "max_layers": 1,
+    "friends_per_layer": [
+        2,
+        1
+    ],
+    "crawled_at": "2025-06-02 20:29:53",
+    "total_accounts": 4,
+    "tree_data": {
+        "id": "NTienMing",
+        "profile_url": "https://www.facebook.com/NTienMing",
+        "layer": 0,
+        "children": [
+            {
+                "id": "Yenkhanhbninhbinh",
+                "username": "Yenkhanhbninhbinh",
+                "profile_url": "https://www.facebook.com/Yenkhanhbninhbinh",
+                "layer": 1,
+                "children": []
+            },
+            {
+                "id": "ut.aigogn",
+                "username": "ut.aigogn",
+                "profile_url": "https://www.facebook.com/ut.aigogn",
+                "layer": 1,
+                "children": [
+                    {
+                        "id": "100064075190409",
+                        "username": "",
+                        "profile_url": "https://www.facebook.com/profile.php?id=100064075190409",
+                        "layer": 2,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}
