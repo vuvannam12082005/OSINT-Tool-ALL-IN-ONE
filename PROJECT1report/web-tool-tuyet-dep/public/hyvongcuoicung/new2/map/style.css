@@ -1,0 +1,302 @@
+:root {
+  --primary-color: #3f51b5;
+  --primary-light: #757de8;
+  --primary-dark: #002984;
+  --accent-color: #ff4081;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --background-light: #f9f9f9;
+  --background-white: #ffffff;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f7fa;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Upload */
+.upload-container {
+  background: var(--background-white);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 25px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.drop-area {
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--background-light);
+  position: relative;
+}
+
+.drop-area:hover {
+  border-color: var(--primary-dark);
+  background-color: rgba(63, 81, 181, 0.05);
+}
+
+.drop-area.highlight {
+  border-color: var(--primary-dark);
+  background-color: rgba(63, 81, 181, 0.1);
+  transform: scale(1.01);
+}
+
+.drop-area p {
+  margin: 15px 0 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.drop-area .icon {
+  font-size: 56px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  transition: var(--transition);
+}
+
+.drop-area:hover .icon {
+  transform: translateY(-5px);
+  color: var (--primary-dark);
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Map container */
+.map-container {
+  position: relative;
+  background: var(--background-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.svg-container {
+  max-width: 100%;
+  margin: auto;
+  background: var(--background-white);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: grab;
+  transition: var(--transition);
+}
+
+.svg-container:active {
+  cursor: grabbing;
+  background-color: var(--background-light);
+}
+
+/* Controls */
+.map-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--background-white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.control-button {
+  width: 45px;
+  height: 45px;
+  background: var(--background-white);
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 18px;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.control-button:first-child {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.control-button:last-child {
+  border-bottom: none;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.control-button:hover {
+  background: var(--primary-light);
+  color: white;
+}
+
+/* Tooltip */
+.tooltip-fixed {
+  position: fixed;
+  display: none;
+  background: rgba(33, 33, 33, 0.9);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  pointer-events: none;
+  font-size: 14px;
+  z-index: 1000;
+  max-width: 320px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-fixed ul {
+  margin: 8px 0 0 16px;
+  padding: 0;
+}
+
+.tooltip-fixed ul li {
+  margin-bottom: 4px;
+}
+
+/* Load */
+.loading {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px 35px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 100;
+  text-align: center;
+}
+
+.loading p {
+  margin: 10px 0 0;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.loading i {
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+/* Bar chart */
+.chart-container {
+  margin-top: 35px;
+  background: var(--background-white);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.chart-container:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--primary-dark);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.chart {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+#myChart {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --border-radius: 8px;
+  }
+  
+  body {
+    padding: 15px;
+  }
+  
+  .upload-container, .map-container, .chart-container {
+    padding: 20px;
+  }
+  
+  .drop-area {
+    padding: 25px 15px;
+  }
+  
+  .drop-area .icon {
+    font-size: 42px;
+  }
+  
+  .control-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .chart-container h3 {
+    font-size: 18px;
+  }
+}
+
+/* Map path */
+path[id^="VN-"] {
+  transition: fill 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+
+path[id^="VN-"]:hover {
+  filter: brightness(1.1);
+}
+
+/* Hoàng Sa, Trường Sa icon */
+path[id="VN-HS"], path[id="VN-TS"] {
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.7));
+  transition: all 0.3s ease;
+}
+
+path[id="VN-HS"]:hover, path[id="VN-TS"]:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));
+  transform: scale(1.1);
+}
+
+/* No data message */
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
