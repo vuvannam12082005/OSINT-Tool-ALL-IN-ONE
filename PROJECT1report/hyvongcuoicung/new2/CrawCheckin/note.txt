@@ -1,0 +1,4 @@
+Sửa dữ liệu acc trong .env
+Không cần key TWO_FA nếu không biết dùng
+Nếu muốn hiện chrome khi crawl thì vào src\api\crawler.js sửa dòng 14 sang false
+
