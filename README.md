@@ -1,2 +1,4 @@
 # OSINT-Tool-ALL-IN-ONE
-osint profile, cmt, ..... facebook
+
+code lập trình trinh thám thông tin facebook
+
